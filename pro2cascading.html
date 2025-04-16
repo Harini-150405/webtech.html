@@ -1,0 +1,59 @@
+<html>
+<head>
+<title>cascading style</title>
+</head>
+<style>
+button
+{
+background-color:#4CAF50;
+border:none;
+padding:20px 10px;
+border-radius:10px;
+font-weight:bold;
+}
+body
+{
+background-color:#f4f4f4;
+}
+p
+{
+padding:20px;
+background-color: #e9f7fd;
+}
+</style>
+<body><center><br><br>
+<h1>Cascading style</h1>
+<p id="inline-css-example">The text will be style with inline css</p>
+
+<button onclick="applyinternalcss()"> Apply internal</button>
+<p id="internal-css-example">The text will be style with internal css</p>
+
+<button onclick="applyexternalcss()">Apply external</button>
+<p id="external-css-example">The text will be style with external css</p>
+<script>
+document.getElementById("inline-css-example").style.color="red";
+document.getElementById("inline-css-example").style.fontSize="18px";
+
+function applyinternalcss()
+{
+const style=document.createElement("style");
+style.innerHTML=`
+#internal-css-example
+{
+color:green;
+font-Size:20px;
+font-weight:bold;
+}
+`;
+document.head.appendChild(style);
+}
+function applyexternalcss()
+{
+const link=document.createElement("link");
+link.rel="stylesheet";
+link.href="https://www.w3schools.com/html/styles.css";
+document.head.appendChild(link);
+}
+</script></center>
+</body>
+</html>
