@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Full Year Calendar</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      text-align: center;
+    }
+    .calendar-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .month {
+      border: 1px solid #aaa;
+      margin: 10px;
+      padding: 10px;
+      width: 280px;
+    }
+    .month h3 {
+      margin: 0 0 10px;
+      background: #f0f0f0;
+      padding: 5px 0;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    th, td {
+      padding: 5px;
+      text-align: center;
+      border: 1px solid #ddd;
+    }
+    input {
+      padding: 5px;
+      margin: 10px;
+    }
+    button {
+      padding: 6px 12px;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Full Year Calendar Generator</h2>
+  <input type="number" id="yearInput" placeholder="Enter Year" min="1900" max="2100" required>
+  <button onclick="generateFullYearCalendar()">Generate</button>
+
+  <div class="calendar-container" id="calendar"></div>
+
+  <script>
+    function generateFullYearCalendar() {
+      const year = parseInt(document.getElementById('yearInput').value);
+      if (isNaN(year)) return alert("Please enter a valid year.");
+
+      const monthNames = ["January", "February", "March", "April", "May", "June",
+                          "July", "August", "September", "October", "November", "December"];
+      const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+      let calendarHTML = "";
+
+      for (let m = 0; m < 12; m++) {
+        let firstDay = new Date(year, m, 1).getDay();
+        let totalDays = new Date(year, m + 1, 0).getDate();
+
+        let monthHTML = `<div class="month"><h3>${monthNames[m]}</h3><table><tr>`;
+        for (let d of days) monthHTML += `<th>${d}</th>`;
+        monthHTML += "</tr><tr>";
+
+        for (let i = 0; i < firstDay; i++) monthHTML += "<td></td>";
+        for (let d = 1; d <= totalDays; d++) {
+          if ((firstDay + d - 1) % 7 === 0 && d !== 1) monthHTML += "</tr><tr>";
+          monthHTML += `<td>${d}</td>`;
+        }
+
+        monthHTML += "</tr></table></div>";
+        calendarHTML += monthHTML;
+      }
+
+      document.getElementById("calendar").innerHTML = calendarHTML;
+    }
+  </script>
+
+</body>
+</html>
