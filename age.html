@@ -1,0 +1,70 @@
+<html>
+<head>
+<style>
+body
+{
+display:flex;
+justify-content:center;
+align-items:center;
+background-color:#f4f4f4;
+}
+.container
+{
+padding:90px 90px;
+
+font-size:30px;
+font-weight:bold;
+background-color:white;
+box-shadow: 0px 4px 6px rgba(0,0,0,1.1);
+}
+input[type="date"],select
+{
+padding:10px;
+width:200px;
+
+font-weight:bold;
+font-size:15px;
+margin-bottom:10px;
+}
+button
+{
+background-color:#4CAF50;
+font-weight:bold;
+font-size:20px;
+border:none;
+margin-left:20px;
+padding:20px;
+border-radius:10px 10px;
+}
+</style>
+</head>
+<body><center>
+<div class="container">
+<label for="dob">enter you dob</label>
+<input type="date" id="dob" name="dob">
+<button onclick="calculateage()" >find age</button>
+<div id="ageresult"></div>
+</div>
+<script>
+function calculateage()
+{
+const dob=document.getElementById("dob").value;
+if(!dob)
+{
+alert("please give your date of birth");
+return;
+}
+const birthDate= new Date(dob);
+const currentDate=new Date();
+let age=currentDate.getFullYear()-birthDate.getFullYear();
+const monthdiff=currentDate.getMonth()-birthDate.getMonth();
+if(monthdiff<0||(monthdiff===0 && currentDate.getDate()<birthDate.getDate()))
+{
+age--;
+}
+document.getElementById("ageresult").textContent=`your age is ${age} years old`;
+}
+</script>
+</body></center>
+
+</html>

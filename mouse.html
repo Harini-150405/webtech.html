@@ -1,0 +1,21 @@
+<html>
+<body>
+<center>
+<h1>Mouse Events</h1>
+
+<script>
+function showmsg1(msg) {
+    alert(msg);
+}
+</script>
+
+<h1 onmouseover="showmsg1('Mouse Over')">India</h1>
+<h1 onmousedown="showmsg1('Mouse Down')">Mouse Down</h1>
+<h1 onmouseup="showmsg1('Mouse Up')">Mouse Up</h1>
+
+<input type="button" value="Click" onclick="showmsg1('Simple Click')">
+
+<h1 ondblclick="showmsg1('Double Click')">Double Click</h1>
+</center>
+</body>
+</html>

@@ -1,0 +1,92 @@
+<html>
+<head>
+<title>string function</title>
+</head>
+<style>
+body
+{
+background-color:#f4f4f4;
+font-weight:bold;
+font-Size:30px;
+}
+#container
+{
+background-color:pink;
+padding:20px;
+border-radius:40px 40px;
+margin-left:200px;
+margin-right:200px;
+}
+
+button
+{
+padding:20px;
+border:none;
+border-radius:20px 20px;
+background-color:#4CAF50;
+}
+input[type="text"], select {
+  font-size: 20px;
+  padding: 10px;
+    border: none;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+</style>
+<body><center>
+<h1>string function</h1>
+<div id="container">
+<label>enter the string</label>
+<input type="text" id="input"><br><br>
+<span id="str"></span>
+<select id="sel">
+<option value="UpperCase">UpperCase</option>
+<option value="LowerCase">LowerCase</option>
+<option value="Length">Length</option>
+<option value="Repeat">Repeat 2times</option>
+<option value="Trim">Trim</option>
+<option value="Substring">SubString</option>
+<option value="Replace welcome_to_hello">replace hii to hello</option>
+</select>
+<span id="empty"></span>
+<button type="submit" onclick="display()">Answer</button>
+</button><br>
+<span id="result"></span>
+</div>
+</div>
+<script>
+function display()
+{
+input=document.getElementById("input").value;
+select=document.getElementById("sel");
+ans=select.options[select.selectedIndex].value;
+switch(ans)
+{
+case 'UpperCase':
+rslt=input.toUpperCase();
+break;
+case 'LowerCase':
+rslt=input.toLowerCase();
+break;
+case 'Length':
+rslt=input.length;
+break;
+case 'Repeat':
+rslt=input.repeat(2);
+break;
+case 'Trim':
+rslt=input.trim();
+break;
+case 'Substring':
+rslt=input.substring(4);
+break;
+case 'Replace welcome_to_hello':
+rslt=input.replace("welcome","hello");
+break;
+}
+return document.getElementById("result").innerHTML=rslt;
+}
+</script>
+</center>
+</body>
+</html>

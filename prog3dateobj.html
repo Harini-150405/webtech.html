@@ -1,0 +1,66 @@
+<html>
+<head>
+<title>Data Object</title>
+</head>
+<style>
+body{
+background-color:rgb(194,188,188);
+}
+button
+{
+background-color:#f4f4f4;
+font-weight:bold;
+padding:15px 30px;
+border-radius:20px;
+}
+.main
+{
+background-color:#f2f2f2;
+padding:30px;
+font-weight:bold;
+color:white;
+margin-left: 100px;
+margin-right:100px;
+}
+.output
+{
+background-color:#28666e;
+padding:20px;
+}
+</style>
+<body><center>
+<h1>Data Object</h1>
+<section class="main">
+<button onclick="showdate()">Show Date</button>
+<p class="output" id="dateoutput"></p>
+
+<button onclick="showtime()">Show Time</button>
+<p class="output" id="timeoutput"></p>
+
+<button onclick="showdatetime()">Show Date Time</button>
+<p class="output" id="datetimeoutput"></p>
+
+</section>
+<script>
+function showdate()
+{
+const today=new Date();
+const date=today.toDateString();
+document.getElementById('dateoutput').innerText=`Date:${date}`;
+}
+function showtime()
+{
+const now=new Date();
+const time=now.toLocaleTimeString();
+document.getElementById('timeoutput').innerText=`Time:${time}`;
+}
+function showdatetime()
+{
+const today=new Date();
+const date=today.toDateString();
+const time=today.toLocaleTimeString();
+document.getElementById('datetimeoutput').innerText=`Date:${date}\nTime:${time}`;
+}
+</script></center>
+</body>
+</html>

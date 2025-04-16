@@ -1,0 +1,95 @@
+<html>
+<head>
+<title>array object</title>
+
+<script language="javascript">
+var f=0;
+a=new Array();
+var n=0;
+function create()
+{
+n=parseInt(prompt("enter size of the array:"));
+for(i=0;i<n;i++)
+{
+a[i]=parseInt(prompt("enter the value:"));
+}
+document.getElementById('result').innerHTML="<h2>Created Successfully</h2>";
+}
+function view()
+{
+var elements="";
+for(i=0;i<n;i++)
+{
+elements+=a[i]+"";
+}
+document.getElementById('result').innerHTML="<h2><left>Array Elements:"+elements+"</h2></left>";
+}
+function f1() {
+    var k = parseInt(prompt("Enter the element to be searched:"));
+    var found = false; 
+    for (var i = 0; i < n; i++) {
+        if (a[i] === k) {
+            found = true;
+            break;
+        }
+    }
+
+    if (found) {
+        document.getElementById('result').innerHTML = "<h2>" + k + " is found</h2>";
+    } else {
+        document.getElementById('result').innerHTML = "<h2>" + k + " is not found</h2>";
+    }
+}
+function f2()
+{
+document.getElementById('result').innerHTML="<h2><left>the length is:"+n+"</h2></left>";
+}
+function f3()
+{
+var p=a.pop();
+document.getElementById('result').innerHTML="<h2><left>pop element :"+p+"</h2></left>";
+}
+function f4()
+{
+var n=parseInt(prompt("enter the element to push"));
+a.push(n);
+document.getElementById('result').innerHTML="<h2><left>push element :"+n+"</h2></left>";
+view();
+}
+function f5()
+{
+var r=a.reverse();
+document.getElementById('result').innerHTML="<h2><left>reverse array :"+r+"</h2></left>";
+}
+function f6()
+{
+var s=a.sort(function(x,y)
+{
+return x-y
+});
+document.getElementById('result').innerHTML="<h2><left>sorted array:"+s+"</h2></left>";
+}
+function f7()
+{
+var slice=a.slice(1,4);
+document.getElementById('result').innerHTML="<h2><left>slice of array :"+slice+"</h2></left>";
+}
+</script>
+
+<h1>array object</h1>
+<table border="1">
+<tr>
+<td><input type="button" onclick="create()" value="create"></td>
+<td><input type="button" onclick="view()" value="view"></td>
+<td><input type="button" onclick="f1()" value="search"></td>
+<td><input type="button" onclick="f2()" value="Length"></td>
+<td><input type="button" onclick="f3()" value="pop"></td> 
+<td><input type="button" onclick="f4()" value="push"></td> 
+<td><input type="button" onclick="f5()" value="reverse"></td> 
+<td><input type="button" onclick="f6()" value="sort"></td> 
+<td><input type="button" onclick="f7()" value="slice"></td> 
+</tr>
+</table>
+<div id="result" align="left"></div><br><br>
+</head>
+</html>
